@@ -39,7 +39,7 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
         [HttpGet("GetEmployeeCodeMax")]
         public IActionResult GetEmployeeCodeMax()
         {
-            return BadRequest(new ServiceResult()
+            return Ok(new ServiceResult()
             {
                 Data = _databaseConnector.GetFirst<Object>("Proc_GetEmployeeCodeMax", new { }),
                 Message = Properties.Resources.Success,
@@ -71,26 +71,14 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
             template.EmployeeId = new Guid();
             var employeeService = new TemplateService<Employee>();
             var res = employeeService.Insert(template);
-            switch(res.Code)
-            {
-                case Enum.ResultCode.BadRequest:
-                    return BadRequest(res);
-                default:
-                    return Ok(res);
-            }
+            return Ok(res);
         }
 
         public override IActionResult Put([FromBody] Employee template)
         {
             var employeeService = new TemplateService<Employee>();
-            ServiceResult res = employeeService.Update(template);
-            switch (res.Code)
-            {
-                case Enum.ResultCode.BadRequest:
-                    return BadRequest(0);
-                default:
-                    return Ok(1);
-            }
+            var res = employeeService.Update(template);
+            return Ok(res);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
             else customerGroupId = "";
             if (filterText != null) filterText = filterText.Trim();
             else filterText = "";
-            Object input = new {FilterText = filterText };
+            Object input = new {FilterText = filterText, CustomerGroupId = customerGroupId };
             return Ok(new ServiceResult()
             {
                 Data = _databaseConnector.GetFirst<int>("Proc_CountCustomers", input),
@@ -65,26 +65,14 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
             template.CustomerId = new Guid();
             var customerService = new TemplateService<Customer>();
             var res = customerService.Insert(template);
-            switch (res.Code)
-            {
-                case Enum.ResultCode.BadRequest:
-                    return BadRequest(res);
-                default:
-                    return Ok(res);
-            }
+            return Ok(res);
         }
 
         public override IActionResult Put([FromBody] Customer template)
         {
             var customerService = new TemplateService<Customer>();
             var res = customerService.Update(template);
-            switch (res.Code)
-            {
-                case Enum.ResultCode.BadRequest:
-                    return BadRequest(res);
-                default:
-                    return Ok(res);
-            }
+            return Ok(res);
         }
     }
 }
