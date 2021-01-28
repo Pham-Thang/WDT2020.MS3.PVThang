@@ -1,0 +1,246 @@
+﻿.content {
+    position: absolute;
+    top: 60px;
+    left: 200px;
+    width: calc(100% - 200px - 20px);
+    height: calc(100vh - 60px - 20px);
+    background-color: #ffffff;
+    margin: 10px;
+    overflow: hidden;
+}
+
+    .content .content__title {
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        overflow: hidden;
+    }
+
+        .content .content__title .title__text {
+            float: left;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content .content__title .title__button {
+            float: right;
+            display: flex;
+            right: 0;
+            background-color: #ffffff;
+            height: 100%;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+    .content .option {
+        width: 100%;
+        height: 50px;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+
+        .content .option .option__filter {
+            float: left;
+            display: flex;
+            background-color: #ffffff;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .content .option .option__button {
+            float: right;
+            display: flex;
+            background-color: #ffffff;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            margin-left: 10px;
+        }
+
+            .content .option .option__button .btn {
+                width: 35px;
+                height: 35px;
+                border: 1px solid #bbbbbb;
+                cursor: pointer;
+                border-radius: 4px;
+                padding: 5px;
+            }
+
+    .content .table {
+        width: 100%;
+        height: calc(100% - 50px - 50px - 50px);
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+        .content .table::-webkit-scrollbar {
+            width: 6px;
+            height: 8px;
+            background-color: #E9EBEE;
+        }
+
+        .content .table::-webkit-scrollbar-thumb {
+            width: 6px;
+            height: 8px;
+            background-color: #bbbbbb;
+        }
+
+        .content .table table {
+            width: 1700px;
+            height: 100%;
+            min-width: 100%;
+            border-collapse: collapse;
+        }
+
+            .content .table table thead{
+                width: 100%;
+                height: 45px;
+            }
+
+            .content .table table tbody {
+                display: block;
+                height: calc(100% - 10px);
+                overflow: auto;
+            }
+
+                .content .table table tbody::-webkit-scrollbar {
+                    width: 6px;
+                    height: 8px;
+                    background-color: #E9EBEE;
+                }
+
+                .content .table table tbody::-webkit-scrollbar-thumb {
+                    width: 6px;
+                    height: 8px;
+                    background-color: #bbbbbb;
+                }
+
+            .content .table table tr {
+                width: 100%;
+                height: 45px;
+                max-height: 45px;
+                border-bottom: 1px solid #bbbbbb;
+                cursor: pointer;
+                text-align: left;
+                display: table;
+                table-layout: fixed;
+            }
+
+                .content .table table tbody tr:hover {
+                    background-color: #E5E5E5;
+                }
+
+                .content .table table tr th {
+                    padding: 5px 10px 5px 10px;
+                }
+
+                .content .table table tr td {
+                    padding: 5px 10px 5px 10px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+    .content .footer {
+        width: 100%;
+        height: 50px;
+        overflow: hidden;
+        text-align: center;
+    }
+
+        .content .footer .footer__left{
+            float: left;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .content .footer .footer__center__container {
+            display: inline-block;
+            height: 100%;
+        }
+
+        .content .footer .footer__center {
+            display: flex;
+            height: 100%;
+            align-items: center;
+        }
+
+            .content .footer .footer__center .prev--page {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+
+            .content .footer .footer__center #list--page {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+                .content .footer .footer__center #list--page .number--page {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                }
+
+            .content .footer .footer__center .next--page {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+
+        .content .footer .footer__right {
+            float: right;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+.icon--add--employee {
+    background: url('../../content/icon/add.png') no-repeat center;
+    background-size: contain;
+}
+
+.icon--refresh {
+    background: url('../../content/icon/refresh.png') no-repeat center;
+}
+
+.icon--previous {
+    background-image: url('../../content/icon/btn-prev-page.svg');
+    background-size: contain;
+}
+
+.icon--next {
+    background-image: url('../../content/icon/btn-next-page.svg');
+    background-size: contain;
+}
+
+.icon--first {
+    background-image: url('../../content/icon/btn-firstpage.svg');
+}
+
+.icon--last {
+    background-image: url('../../content/icon/btn-lastpage.svg');
+}
+
+.icon--search {
+    background: url('../../content/icon/search.png') no-repeat center;
+}
+
+.current--page {
+    background-color: #019160;
+    color: #ffffff;
+}
+
+.row--odd {
+    background-color: #f8f8f8;
+}
+
+.row--select {
+    background-color: #bbbbbb;
+}
