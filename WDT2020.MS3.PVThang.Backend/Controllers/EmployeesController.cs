@@ -20,9 +20,12 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
         [HttpGet("{page}&{number_employee}&{departmentId}&{positionId}&{filterText}")]
         public IActionResult Get(int page, int number_employee, String departmentId, String positionId, String filterText)
         {
-            if (departmentId == "-") departmentId = "";
-            if (positionId == "-") positionId = "";
-            if (filterText == "-") filterText = "";
+            if (departmentId != null) departmentId = departmentId.Trim();
+            else departmentId = "";
+            if (positionId != null) positionId = positionId.Trim();
+            else positionId = "";
+            if (filterText != null) filterText = filterText.Trim();
+            else filterText = "";
             int start = number_employee * (page - 1);
             Object input = new { Start = start, Number = number_employee, DepartmentId = departmentId, PositionId = positionId, FilterText = filterText };
             return Ok(new ServiceResult()
@@ -48,7 +51,12 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
         [HttpGet("count/{departmentId}&{positionId}&{filterText}")]
         public IActionResult Get(String departmentId, String positionId, String filterText)
         {
-            if (filterText == "-") filterText = "";
+            if (departmentId != null) departmentId = departmentId.Trim();
+            else departmentId = "";
+            if (positionId != null) positionId = positionId.Trim();
+            else positionId = "";
+            if (filterText != null) filterText = filterText.Trim();
+            else filterText = "";
             Object input = new { DepartmentId = departmentId, PositionId = positionId, FilterText = filterText };
             return Ok(new ServiceResult()
             {

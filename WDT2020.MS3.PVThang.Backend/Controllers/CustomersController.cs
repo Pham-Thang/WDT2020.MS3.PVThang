@@ -13,12 +13,15 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
     public class CustomersController : BaseEntityController<Customer>
     {
 
-        [HttpGet("{page}&{number}&{filterText}")]
-        public IActionResult Get(int page, int number, String filterText)
+        [HttpGet("{page}&{number}&{customerGroupId}&{filterText}")]
+        public IActionResult Get(int page, int number, String customerGroupId, String filterText)
         {
-            if (filterText == "-") filterText = "";
+            if (customerGroupId != null) customerGroupId = customerGroupId.Trim();
+            else customerGroupId = "";
+            if (filterText != null) filterText = filterText.Trim();
+            else filterText = "";
             int start = number * (page - 1);
-            Object input = new { Start = start, Number = number, FilterText = filterText };
+            Object input = new { Start = start, Number = number, CustomerGroupId = customerGroupId, FilterText = filterText };
             return Ok(new ServiceResult()
             {
                 Data = _databaseConnector.Get("Proc_GetCustomers", input),
@@ -27,7 +30,7 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
             });
         }
 
-        [HttpGet("GetCustomerCodeCodeMax")]
+        [HttpGet("GetCustomerCodeMax")]
         public IActionResult GetCustomerCodeMax()
         {
             return Ok(new ServiceResult()
@@ -39,10 +42,13 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
         }
 
         // GET: api/<EmployeesController>
-        [HttpGet("count/{filterText}")]
-        public IActionResult Count(String filterText)
+        [HttpGet("count/{customerGroupId}&{filterText}")]
+        public IActionResult Count(String customerGroupId, String filterText)
         {
-            if (filterText == "-") filterText = "";
+            if (customerGroupId != null) customerGroupId = customerGroupId.Trim();
+            else customerGroupId = "";
+            if (filterText != null) filterText = filterText.Trim();
+            else filterText = "";
             Object input = new {FilterText = filterText };
             return Ok(new ServiceResult()
             {
