@@ -61,7 +61,7 @@ namespace WDT2020.MS3.PVThang.Backend.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to không được để trùng.
+        ///   Looks up a localized string similar to  không được để trùng.
         /// </summary>
         public static string ErrorDuplicate {
             get {
@@ -70,7 +70,7 @@ namespace WDT2020.MS3.PVThang.Backend.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to không được để trống.
+        ///   Looks up a localized string similar to  không được để trống.
         /// </summary>
         public static string ErrorRequired {
             get {

@@ -36,17 +36,6 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
             });
         }
 
-        [HttpGet("GetEmployeeCodeMax")]
-        public IActionResult GetEmployeeCodeMax()
-        {
-            return Ok(new ServiceResult()
-            {
-                Data = _databaseConnector.GetFirst<Object>("Proc_GetEmployeeCodeMax", new { }),
-                Message = Properties.Resources.Success,
-                Code = Enum.ResultCode.Success
-            });
-        }
-
         // GET: api/<EmployeesController>
         [HttpGet("count/{departmentId}&{positionId}&{filterText}")]
         public IActionResult Get(String departmentId, String positionId, String filterText)
@@ -83,13 +72,13 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
         public override IActionResult Put([FromBody] Employee template)
         {
             var employeeService = new TemplateService<Employee>();
-            var res = employeeService.Update(template);
+            ServiceResult res = employeeService.Update(template);
             switch (res.Code)
             {
                 case Enum.ResultCode.BadRequest:
-                    return BadRequest(res);
+                    return BadRequest(0);
                 default:
-                    return Ok(res);
+                    return Ok(1);
             }
         }
     }

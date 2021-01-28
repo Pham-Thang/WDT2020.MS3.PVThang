@@ -65,7 +65,7 @@ namespace WDT2020.MS3.PVThang.Backend.Services
                     {
                         var message = (propertyName as Required).propertyName + Properties.Resources.ErrorRequired + ". ";
                         if ((propertyName as Required).errorMessage != null) message = (propertyName as Required).errorMessage;
-                        _serviceResult.Message = _serviceResult.Message==null? message:(_serviceResult.Message + '\n' + message);
+                        _serviceResult.Message = _serviceResult.Message==null? message:(_serviceResult.Message + message);
                     }
                     _serviceResult.Code = Enum.ResultCode.BadRequest;
                 }
@@ -75,9 +75,9 @@ namespace WDT2020.MS3.PVThang.Backend.Services
                     var propertyName = property.GetCustomAttributes(typeof(CheckDuplicate), true).FirstOrDefault();
                     if (propertyName != null)
                     {
-                        var message = (propertyName as CheckDuplicate).propertyName + Properties.Resources.ErrorRequired + ". ";
+                        var message = (propertyName as CheckDuplicate).propertyName + Properties.Resources.ErrorDuplicate + ". ";
                         if ((propertyName as CheckDuplicate).errorMessage != null) message = (propertyName as CheckDuplicate).errorMessage;
-                        _serviceResult.Message = _serviceResult.Message == null ? message : (_serviceResult.Message + '\n' + message);
+                        _serviceResult.Message = _serviceResult.Message == null ? message : (_serviceResult.Message + message);
                     }
                     _serviceResult.Code = Enum.ResultCode.BadRequest;
                 }

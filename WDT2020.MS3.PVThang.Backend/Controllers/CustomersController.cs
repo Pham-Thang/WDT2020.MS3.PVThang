@@ -24,7 +24,7 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
             Object input = new { Start = start, Number = number, CustomerGroupId = customerGroupId, FilterText = filterText };
             return Ok(new ServiceResult()
             {
-                Data = _databaseConnector.Get("Proc_GetCustomers", input),
+                Data = _databaseConnector.GetList<Customer>("Proc_GetCustomers", input),
                 Message = Properties.Resources.Success,
                 Code = Enum.ResultCode.Success
             });
