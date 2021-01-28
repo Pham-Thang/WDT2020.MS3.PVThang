@@ -36,6 +36,17 @@ namespace WDT2020.MS3.PVThang.Backend.Controllers
             });
         }
 
+        [HttpGet("GetEmployeeCodeMax")]
+        public IActionResult GetEmployeeCodeMax()
+        {
+            return BadRequest(new ServiceResult()
+            {
+                Data = _databaseConnector.GetFirst<Object>("Proc_GetEmployeeCodeMax", new { }),
+                Message = Properties.Resources.Success,
+                Code = Enum.ResultCode.Success
+            });
+        }
+
         // GET: api/<EmployeesController>
         [HttpGet("count/{departmentId}&{positionId}&{filterText}")]
         public IActionResult Get(String departmentId, String positionId, String filterText)
